@@ -1,6 +1,7 @@
+<div class="d-flex flex-column justify-content-center align-content-center">
 <div *ngFor="let row of seatingPlan; let i = index" class="row">
   <!-- <strong class="text-sm-start">Σειρά {{ row.rowNumber }}</strong> -->
-  <div class="seats-row justify-content-center align-content-center">
+  <div class="seats-row justify-content-between">
     <strong class="text-sm-start">Σειρά {{ formatRowNumber(row.rowNumber) }}</strong>
     <span *ngFor="let seat of row.seats; let si = index"
           (click)="toggleSeat(i, si)"
@@ -11,3 +12,5 @@
     </span>
   </div>
 </div>
+ <button class="w-25 w-auto" mat-flat-button (click)="logReservedSeats()">Κράτηση θέσεων</button>
+ </div>

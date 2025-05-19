@@ -5,7 +5,7 @@
 .seats-row {
   display: flex;
   flex-wrap: nowrap;
-  gap: 6px;
+  /* gap: 8px; */
   margin-top: 1px;
 }
 

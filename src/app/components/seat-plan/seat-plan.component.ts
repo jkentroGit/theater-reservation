@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Row } from '../../shared/interfaces/row-seat';
 import { Seat } from '../../shared/interfaces/row-seat';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-seat-plan',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './seat-plan.component.html',
   styleUrl: './seat-plan.component.css'
 })
@@ -38,11 +39,26 @@ export class SeatPlanComponent {
 
   toggleSeat(rowIndex: number, seatIndex: number) {
   const seat = this.seatingPlan[rowIndex].seats[seatIndex];
-  seat.reserved = !seat.reserved;  // Toggle true/false on each click
+  seat.reserved = !seat.reserved;
 }
 
 formatRowNumber(num: number): string {
   return num.toString().padStart(2, '0');
 }
+logReservedSeats() {
+  const reservedSeats: { row: number; seat: number; }[] = [];
 
+  this.seatingPlan.forEach((row, rowIndex) => {
+    row.seats.forEach((seat, seatIndex) => {
+      if (seat.reserved) {
+        reservedSeats.push({
+          row: row.rowNumber,
+          seat: seat.seatNumber
+        });
+      }
+    });
+  });
+
+  console.log('Reserved Seats:', reservedSeats);
+}
 }
