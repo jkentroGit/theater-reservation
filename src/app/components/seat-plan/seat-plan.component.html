@@ -1,0 +1,13 @@
+<div *ngFor="let row of seatingPlan; let i = index" class="row">
+  <!-- <strong class="text-sm-start">Σειρά {{ row.rowNumber }}</strong> -->
+  <div class="seats-row justify-content-center align-content-center">
+    <strong class="text-sm-start">Σειρά {{ formatRowNumber(row.rowNumber) }}</strong>
+    <span *ngFor="let seat of row.seats; let si = index"
+          (click)="toggleSeat(i, si)"
+          [class.reserved]="seat.reserved"
+          class="seat material-symbols-outlined"
+          title="Seat {{ seat.seatNumber }}">
+      chair_alt
+    </span>
+  </div>
+</div>

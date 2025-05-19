@@ -9,7 +9,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class SideMenuComponent {
   menu = [
-    { text: 'Εγγραφή χρήστη', linkName:'app-register'}
+     { text: 'Login', linkName: 'app-login'},
+     { text: 'Εγγραφή χρήστη', linkName:'app-register'},
+     { text: 'Πλάνο θέσεων', linkName: 'app-seat-plan'}
+   
     ]
 }
 

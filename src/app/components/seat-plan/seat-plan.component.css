@@ -1,0 +1,24 @@
+.row {
+  margin-bottom: 4px;
+}
+
+.seats-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  margin-top: 1px;
+}
+
+.seat {
+  font-variation-settings: 'wght' 400, 'FILL' 0;
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  color: rgb(194, 192, 192);
+  transition: color 0.3s ease;
+}
+
+.seat.reserved {
+  color: #4caf50;
+  font-variation-settings: 'wght' 700, 'FILL' 1;
+}

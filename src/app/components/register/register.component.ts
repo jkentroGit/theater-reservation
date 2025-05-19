@@ -3,17 +3,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { 
-  AbstractControl,
   FormControl, 
   FormGroup, 
   ReactiveFormsModule, 
-  ValidationErrors, 
   Validators 
 } from '@angular/forms';
 import { User } from '../../shared/interfaces/user';
 
 @Component({
   selector: 'app-register',
+  standalone: true,  
   imports: [
     MatButtonModule, 
     MatFormFieldModule, 
@@ -51,8 +50,7 @@ onSubmit() {
         'street':this.form.controls.address.controls.street?.value || '',
         'streetNum': this.form.controls.address.controls.streetNum?.value || '',
         'city': this.form.controls.address.controls.city?.value || '',
-        'tk': this.form.controls.address.controls.tk?.value || ''        
-      },
+        'tk': this.form.controls.address.controls.tk?.value || ''},
       'password': this.form.get('password')?.value || ''}
 
     console.log(data);
